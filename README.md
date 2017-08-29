@@ -8,6 +8,15 @@ If you have a Lookup relationship between 2 objects then you need to write an Ap
 1. The Rollup Summaries logic should consider insert, update and delete operations.
 2. The trigger should handle validation rules of child and as well as parent objects.
 3. The exceptions should be handled gracefully and in a user-friendly manner.
+4. Use "Database.DML" statement instead of normal "DML" statement. The "Database.DML" statement does partial in a batch of 200 records.
+
+##### Error shown to user in DML Statement
+
+<img src="supportedimages/Error1.png" />
+
+##### Error shown to user in Database.DML Statement
+
+<img src="supportedimages/Error2.png" />
 
 #### A great tool on Rollup Summaries for administrators 
 https://github.com/afawcett/declarative-lookup-rollup-summaries
