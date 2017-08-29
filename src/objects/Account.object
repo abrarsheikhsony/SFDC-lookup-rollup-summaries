@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fields>
+        <fullName>BusinessEmail__c</fullName>
+        <description>This is the business email address.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>This is the business email address.</inlineHelpText>
+        <label>Business Email</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <type>Email</type>
+        <unique>false</unique>
+    </fields>
+    <validationRules>
+        <fullName>ValidateBusinessEmail</fullName>
+        <active>true</active>
+        <errorConditionFormula>AND( 
+TotalSalesAmount__c &gt; 0, 
+ ISBLANK( BusinessEmail__c ) 
+)</errorConditionFormula>
+        <errorMessage>You must enter Business Email for Customer type accounts.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>ValidateSalesAmount</fullName>
+        <active>true</active>
+        <errorConditionFormula>AND(
+  TotalSalesAmount__c &gt; 0,
+  NOT(ISPICKVAL(Type, &quot;Customer&quot;))
+)</errorConditionFormula>
+        <errorMessage>You must ONLY enter Sales Amount for Customer type accounts.</errorMessage>
+    </validationRules>
+</CustomObject>
